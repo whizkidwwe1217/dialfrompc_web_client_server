@@ -5,5 +5,6 @@ import { ContactsComponent } from './contacts/contacts.component';
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
     { path: 'contacts', component: ContactsComponent },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: '**', component: HomeComponent }
 ];
