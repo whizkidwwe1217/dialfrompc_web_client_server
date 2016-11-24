@@ -1,6 +1,8 @@
 {
   "name": "dialfrompc",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "An application that sends a contact number from PC to Android device then dials that number.",
+  "author": "Wendell Wayne H. Estrada <whizkidwwe1217@live.com> (http://www.irely.com)",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
