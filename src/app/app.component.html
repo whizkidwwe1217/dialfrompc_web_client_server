@@ -1,3 +1,40 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout class="demo-root" fullscreen>
+  <md-sidenav #start>
+    <div class="profile-container">
+      <button id="profile-button" md-icon-button (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">
+          <md-icon class="material-icons">list</md-icon>
+        </button>
+      <img class="img-avatar" width="100px" height="100px" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png"/>
+      <div class="profile-info-container">
+        <h3 id="profile-info-name">Wendell Wayne H. Estrada</h3>
+        <h4 id="profile-info-contact">+639476951219</h4>
+      </div>
+    </div>
+    <md-nav-list>
+      <a *ngFor="let navItem of navItems" [routerLink]="[navItem.route]" md-list-item (click)="start.close()">
+        <md-icon class="material-icons">{{navItem.icon}}</md-icon>&nbsp;{{navItem.name}}
+      </a>
+      <hr>
+      <md-list-item (click)="start.close()">
+        <md-icon class="material-icons">settings</md-icon>&nbsp;Settings
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
+  <div>
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="start.open()">
+        <md-icon class="md-24" >menu</md-icon>
+      </button>
+      <div class="main-toolbar">
+        <h1>Dial From PC</h1>
+        <!--<button md-button (click)="root.dir = (root.dir == 'rtl' ? 'ltr' : 'rtl')" title="Toggle between RTL and LTR">
+          {{root.dir.toUpperCase()}}
+        </button>-->
+      </div>
+    </md-toolbar>
+
+    <div #root="$implicit" dir="ltr" class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-layout>

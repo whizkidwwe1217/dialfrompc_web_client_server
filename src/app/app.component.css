@@ -1,0 +1,52 @@
+body, html, h4, h3 {
+  font-family: sans-serif;
+}
+
+md-sidenav {
+  width: 250px;
+}
+
+.main-toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.main-content {
+  padding: 32px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+.profile-container {
+  padding-top: 8px;
+  width: 100%;
+  min-height: 100px;
+}
+
+.img-avatar {
+  display: block;
+  margin: 0 auto;
+}
+
+#profile-info-name {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2px;
+  font-size: 12pt;
+  color: #5e5e5e;
+}
+
+#profile-info-contact {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2px;
+  font-size: 8pt;
+  color: #5e5e5e;
+}
+
+#profile-button {
+  margin-right: 0;
+}
