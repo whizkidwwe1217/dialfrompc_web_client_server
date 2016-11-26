@@ -1,8 +1,8 @@
 <md-sidenav-layout class="demo-root" fullscreen>
-  <md-sidenav #start>
+  <md-sidenav #start opened="true" mode="side">
     <div class="profile-container">
       <button id="profile-button" md-icon-button (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">
-          <md-icon class="material-icons">list</md-icon>
+          <md-icon class="material-icons">dashboard</md-icon>
         </button>
       <img class="img-avatar" width="100px" height="100px" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png"/>
       <div class="profile-info-container">
@@ -11,18 +11,18 @@
       </div>
     </div>
     <md-nav-list>
-      <a *ngFor="let navItem of navItems" [routerLink]="[navItem.route]" md-list-item (click)="start.close()">
+      <a *ngFor="let navItem of navItems" [routerLink]="[navItem.route]" md-list-item (click)="start.mode == 'side' ? return : start.close()">
         <md-icon class="material-icons">{{navItem.icon}}</md-icon>&nbsp;{{navItem.name}}
       </a>
       <hr>
-      <md-list-item (click)="start.close()">
+      <md-list-item (click)="start.mode == 'side' ? return : start.close()">
         <md-icon class="material-icons">settings</md-icon>&nbsp;Settings
       </md-list-item>
     </md-nav-list>
   </md-sidenav>
   <div>
     <md-toolbar color="primary">
-      <button md-icon-button (click)="start.open()">
+      <button *ngIf="start.mode != 'side'" md-icon-button (click)="start.open()">
         <md-icon class="md-24" >menu</md-icon>
       </button>
       <div class="main-toolbar">

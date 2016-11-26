@@ -1,6 +1,52 @@
-<md-list dense>
-    <h3 md-subheader>Contacts</h3>
-    <md-list-item *ngFor="let contact of contacts">
-        {{contact.fullName}}
-    </md-list-item>
-</md-list>
+<md-card style="max-width: 800px; margin: 0 auto;">
+    <md-card-title>
+        <span style="padding-right: 20pt;">Contacts</span>
+        <md-input placeholder="search"></md-input>
+        <button md-icon-button>
+            <md-icon>search</md-icon>
+        </button>
+    </md-card-title>
+    <md-card-content>
+        <md-card class="demo-card demo-basic">
+            <md-card-content>
+                <form [formGroup]="contactForm"> 
+                    <table style="width: 100%" cellspacing="0">
+                        <tr>
+                            <td>
+                                <md-input formControlName="fullName" placeholder="Name" style="width: 100%"></md-input>
+                            </td>
+                            <td>
+                                <md-input formControlName="mobileNo" placeholder="Number" style="width: 100%"></md-input>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>
+                        <md-textarea formControlName="address" style="width: 100%;" placeholder="Address"></md-textarea>
+                    </p>
+                </form>
+            </md-card-content>
+            <md-card-actions>
+                <button md-button>SAVE</button>
+                <button md-button>CANCEL</button>
+                <button md-button>DELETE</button>
+            </md-card-actions>
+        </md-card>
+        <md-nav-list dense>
+            <h2 md-subheader>People</h2>
+            <md-list-item *ngFor="let contact of contacts" (click)="onContactClick($event, contact)">
+                <img md-list-avatar width="32px" height="32px" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png">
+                <h1 md-line style="font-weight: bold">{{contact.fullName}}</h1>
+                <p md-line>{{contact.mobileNo}}</p>
+                <button md-icon-button>
+                    <md-icon style="color: green">call</md-icon>
+                </button>
+                <button md-icon-button>
+                    <md-icon style="color: gray">textsms</md-icon>
+                </button>
+                <button md-icon-button>
+                    <md-icon style="color: red">delete</md-icon>
+                </button>
+            </md-list-item>
+        </md-nav-list>
+    </md-card-content>
+</md-card>
